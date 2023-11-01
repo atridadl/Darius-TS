@@ -1,0 +1,26 @@
+{
+  "name": "darius",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"bun run --hot src/main.ts\" \"bun run tw\"",
+    "start": "bun run src/main.ts",
+    "tw": "bunx --bun tailwindcss -i ./base.css -o ./public/css/styles.css"
+  },
+  "dependencies": {
+    "@elysiajs/html": "^0.7.3",
+    "@elysiajs/static": "^0.7.1",
+    "@elysiajs/swagger": "^0.7.4",
+    "elysia": "latest",
+    "ioredis": "^5.3.2"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "latest",
+    "autoprefixer": "^10.4.16",
+    "bun-types": "latest",
+    "concurrently": "^8.2.2",
+    "daisyui": "^3.9.4",
+    "tailwindcss": "^3.3.5"
+  },
+  "module": "src/main.ts"
+}
