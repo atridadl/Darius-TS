@@ -18,6 +18,25 @@ Ensure you copy .env.example to a new file called .env and fill in the required 
 cp .env.example .env
 ```
 
+## Directory Stucture
+
+public/ - Static assets
+src/ - Source code
+src/pages - Page templates
+src/components - Reusable components
+src/components/layouts - Layout templates
+src/api - API endpoints
+
+## CSS Changes
+
+Any CSS changes will require running the following command to generate the new CSS file:
+
+```bash
+bun run tw
+```
+
+Please note that this command will also run automatically when you run the development server.
+
 ## Development
 
 To start the development server run:

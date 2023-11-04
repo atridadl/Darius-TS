@@ -1,6 +1,9 @@
 import { Elysia } from "elysia";
-import { appRouter } from "./routes/router";
 import { staticPlugin } from "@elysiajs/static";
+import swagger from "@elysiajs/swagger";
+
+import { pageRoutes } from "./pages";
+import { apiRoutes, websocketRoutes } from "./api";
 
 const app = new Elysia()
   .use(
@@ -27,7 +30,27 @@ const app = new Elysia()
       prefix: "public/css",
     })
   )
-  .use(appRouter)
+  .use(
+    swagger({
+      exclude: pageRoutes.routes.map((route) => route.path),
+      documentation: {
+        info: {
+          title: "Darius API",
+          description: "API Documentation for Darius",
+          version: "1.0.0",
+        },
+        tags: [
+          {
+            name: "HTMX",
+            description: "HTMX Endpoints - These return HTML",
+          },
+        ],
+      },
+    })
+  )
+  .use(apiRoutes)
+  .use(pageRoutes)
+  .use(websocketRoutes)
   .listen(3000);
 
 console.log(
