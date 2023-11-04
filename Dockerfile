@@ -20,9 +20,10 @@ RUN apt-get update -qq && \
     apt-get install -y build-essential pkg-config python-is-python3
 
 # Install node modules
-COPY --link bun.lockb package.json base.css ./
+COPY --link bun.lockb package.json ./
+COPY --link ./src/base.css ./src/base.css
 RUN bun install --ci
-RUN bun tw
+RUN bun tw:ci
 
 # Copy application code
 COPY --link . .
@@ -35,4 +36,4 @@ COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD [ "bun", "start:ci" ]
+CMD [ "bun", "start" ]
