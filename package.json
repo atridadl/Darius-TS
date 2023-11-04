@@ -3,8 +3,9 @@
   "version": "1.0.1",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"bun run --hot src/main.ts\" \"bun run tw\"",
-    "start": "bun run src/main.ts",
+    "dev": "bun run tw && bun run --hot src/main.ts",
+    "start": "bun run tw && bun run src/main.ts",
+    "start:ci": "bun run src/main.ts",
     "tw": "bunx --bun tailwindcss -i ./base.css -o ./public/css/styles.css"
   },
   "dependencies": {
@@ -16,9 +17,7 @@
   },
   "devDependencies": {
     "@flydotio/dockerfile": "latest",
-    "autoprefixer": "^10.4.16",
     "bun-types": "latest",
-    "concurrently": "^8.2.2",
     "daisyui": "^3.9.4",
     "tailwindcss": "^3.3.5"
   },
