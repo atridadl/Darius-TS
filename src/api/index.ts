@@ -1,12 +1,9 @@
 import Elysia from "elysia";
 import { html } from "@elysiajs/html";
-import Redis from "ioredis";
 
 import { decrementCount, getCount, incrementCount } from "./count";
 import { hello } from "./hello";
-
-const redis = new Redis(process.env.REDIS_URL!);
-await redis.set("count", 0);
+import { redis } from "@/lib/redis";
 
 export const apiRoutes = new Elysia()
   .use(html())

@@ -1,6 +1,6 @@
 {
   "name": "darius",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"bun run --hot --inspect src/main.ts\" \"bun run tw:dev\"",
