@@ -40,12 +40,18 @@ export const apiRoutes = new Elysia()
 export const websocketRoutes = new Elysia().ws("/ws", {
   open(ws) {
     ws.subscribe("broadcast");
+    console.log("🟢 Websocket connection opened!");
   },
   message(ws, message) {
+    console.log("🔵 Websocket message received!");
     ws.send(`<p hx-id="countfromserver" id="countfromserver">${message}</p>`);
     ws.publish(
       "broadcast",
       `<p hx-id="countfromserver" id="countfromserver">${message}</p>`
     );
+  },
+  close(ws) {
+    ws.unsubscribe("broadcast");
+    console.log("🔴 Websocket connection closed!");
   },
 });
