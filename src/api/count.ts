@@ -1,31 +1,31 @@
-export const incrementCount = async (redis: any) => {
-  const newCount = await redis.incr("count");
+let count = 0; // in-memory count
+
+export const incrementCount = async () => {
+  count++;
 
   const socket = new WebSocket("ws://localhost:3000/ws");
   await new Promise<void>((resolve) => {
     socket.onopen = () => {
-      socket.send(newCount);
+      socket.send(count.toString());
       resolve();
     };
   });
   socket.close();
 };
 
-export const decrementCount = async (redis: any) => {
-  const newCount = await redis.decr("count");
+export const decrementCount = async () => {
+  count--;
 
   const socket = new WebSocket("ws://localhost:3000/ws");
   await new Promise<void>((resolve) => {
     socket.onopen = () => {
-      socket.send(newCount);
+      socket.send(count.toString());
       resolve();
     };
   });
   socket.close();
 };
 
-export const getCount = async (redis: any) => {
-  const count = await redis.get("count");
-
+export const getCount = async () => {
   return `<p hx-id="countfromserver" id="countfromserver">${count}</p>`;
 };

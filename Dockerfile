@@ -23,7 +23,7 @@ RUN apt-get update -qq && \
 COPY --link bun.lockb package.json ./
 COPY --link ./src/base.css ./src/base.css
 RUN bun install --ci
-RUN bun tw:ci
+RUN bun tw
 
 # Copy application code
 COPY --link . .

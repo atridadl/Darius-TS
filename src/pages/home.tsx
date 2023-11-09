@@ -5,7 +5,7 @@ export const homePage = () => (
   <html lang="en" class="h-[100%] w-[100%] fixed overflow-y-auto">
     <BaseHead>
       <>
-        <title>Darius | Home Page</title>
+        <title>Darius | Home</title>
         <script src="public/js/ws.js" />
       </>
     </BaseHead>
@@ -43,7 +43,7 @@ export const homePage = () => (
 
         <br />
 
-        <h2 class="text-xl sm:text-2xl">Websocket Counter using Redis Demo:</h2>
+        <h2 class="text-xl sm:text-2xl">Websocket Counter Demo:</h2>
 
         <div class="flex-row flex gap-2 justify-center items-center text-center">
           <button

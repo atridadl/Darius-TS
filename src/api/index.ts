@@ -3,35 +3,25 @@ import { html } from "@elysiajs/html";
 
 import { decrementCount, getCount, incrementCount } from "./count";
 import { hello } from "./hello";
-import { redis } from "@/lib/redis";
 
 export const apiRoutes = new Elysia()
   .use(html())
-  .decorate("redis", redis)
   .get("/api/htmx/hello", async () => hello, {
     detail: {
       tags: ["HTMX"],
     },
   })
-  .post(
-    "/api/htmx/count/incrementCount",
-    async ({ redis }) => incrementCount(redis),
-    {
-      detail: {
-        tags: ["HTMX"],
-      },
-    }
-  )
-  .post(
-    "/api/htmx/count/decrementCount",
-    async ({ redis }) => decrementCount(redis),
-    {
-      detail: {
-        tags: ["HTMX"],
-      },
-    }
-  )
-  .get("/api/htmx/count/getCount", async ({ redis }) => await getCount(redis), {
+  .post("/api/htmx/count/incrementCount", incrementCount, {
+    detail: {
+      tags: ["HTMX"],
+    },
+  })
+  .post("/api/htmx/count/decrementCount", decrementCount, {
+    detail: {
+      tags: ["HTMX"],
+    },
+  })
+  .get("/api/htmx/count/getCount", getCount, {
     detail: {
       tags: ["HTMX"],
     },

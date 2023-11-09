@@ -3,24 +3,21 @@
   "version": "1.0.2",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"bun run --hot --inspect src/main.ts\" \"bun run tw:dev\"",
+    "dev": "bun run tw && bun run src/main.ts",
     "start": "bun run src/main.ts",
-    "tw:ci": "bun tailwindcss -i ./src/base.css -o ./public/css/styles.css",
-    "tw:dev": "bun tailwindcss -i ./src/base.css -o ./public/css/styles.css --watch"
+    "tw": "bun tailwindcss -i ./src/base.css -o ./public/css/styles.css"
   },
   "dependencies": {
-    "@elysiajs/html": "^0.7.3",
+    "@elysiajs/html": "latest",
     "@elysiajs/static": "^0.7.1",
     "@elysiajs/swagger": "^0.7.4",
-    "elysia": "latest",
-    "ioredis": "^5.3.2"
+    "elysia": "latest"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "latest",
     "bun-types": "latest",
     "daisyui": "^3.9.4",
-    "tailwindcss": "^3.3.5",
-    "concurrently": "^8.2.2"
+    "tailwindcss": "^3.3.5"
   },
   "module": "src/main.ts"
 }
