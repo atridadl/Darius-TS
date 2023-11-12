@@ -1,4 +1,4 @@
-![Darius Logo](https://github.com/atridadl/Darius/assets/88056492/2b7f321c-536b-447c-a7cb-2a58d8f62776)
+![Darius Logo](https://github.com/atridadl/Darius-TS/assets/88056492/77d1d6a5-963d-4f39-8ff6-d766b59564be)
 
 # ✨ Darius ✨
 
