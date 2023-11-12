@@ -4,28 +4,31 @@ import { html } from "@elysiajs/html";
 import { decrementCount, getCount, incrementCount } from "./count";
 import { hello } from "./hello";
 
-export const apiRoutes = new Elysia()
-  .use(html())
-  .get("/api/htmx/hello", async () => hello, {
-    detail: {
-      tags: ["HTMX"],
-    },
-  })
-  .post("/api/htmx/count/incrementCount", incrementCount, {
-    detail: {
-      tags: ["HTMX"],
-    },
-  })
-  .post("/api/htmx/count/decrementCount", decrementCount, {
-    detail: {
-      tags: ["HTMX"],
-    },
-  })
-  .get("/api/htmx/count/getCount", getCount, {
-    detail: {
-      tags: ["HTMX"],
-    },
-  });
+export const apiRoutes = new Elysia().use(html()).group("/api", (api) =>
+  api.group("/htmx", (htmx) =>
+    htmx
+      .get("/hello", async () => hello, {
+        detail: {
+          tags: ["HTMX"],
+        },
+      })
+      .post("/count/incrementCount", incrementCount, {
+        detail: {
+          tags: ["HTMX"],
+        },
+      })
+      .post("/count/decrementCount", decrementCount, {
+        detail: {
+          tags: ["HTMX"],
+        },
+      })
+      .get("/count/getCount", getCount, {
+        detail: {
+          tags: ["HTMX"],
+        },
+      })
+  )
+);
 
 export const websocketRoutes = new Elysia().ws("/ws", {
   open(ws) {
