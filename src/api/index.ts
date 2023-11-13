@@ -2,12 +2,12 @@ import Elysia from "elysia";
 import { html } from "@elysiajs/html";
 
 import { decrementCount, getCount, incrementCount } from "./count";
-import { hello } from "./hello";
+import { sayHello } from "./hello";
 
 export const apiRoutes = new Elysia().use(html()).group("/api", (api) =>
   api.group("/htmx", (htmx) =>
     htmx
-      .get("/hello", async () => hello, {
+      .get("/hello", async () => sayHello, {
         detail: {
           tags: ["HTMX"],
         },

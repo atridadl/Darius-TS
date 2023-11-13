@@ -1,8 +1,7 @@
 {
   "name": "darius",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run tw && bun run src/main.ts",
     "start": "bun run src/main.ts",
     "tw": "bun tailwindcss -i ./src/base.css -o ./public/css/styles.css"

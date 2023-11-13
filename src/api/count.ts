@@ -1,29 +1,17 @@
+import { sendToWs } from "@/lib/ws";
+
 let count = 0; // in-memory count
 
 export const incrementCount = async () => {
   count++;
 
-  const socket = new WebSocket("ws://localhost:3000/ws");
-  await new Promise<void>((resolve) => {
-    socket.onopen = () => {
-      socket.send(count.toString());
-      resolve();
-    };
-  });
-  socket.close();
+  sendToWs(count.toString());
 };
 
 export const decrementCount = async () => {
   count--;
 
-  const socket = new WebSocket("ws://localhost:3000/ws");
-  await new Promise<void>((resolve) => {
-    socket.onopen = () => {
-      socket.send(count.toString());
-      resolve();
-    };
-  });
-  socket.close();
+  sendToWs(count.toString());
 };
 
 export const getCount = async () => {
