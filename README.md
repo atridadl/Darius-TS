@@ -12,10 +12,10 @@ To get started with this template, clone this repo and run:
 bun install
 ```
 
-Ensure you copy .env.example to a new file called .env and fill in the required values:
+Running tests can be done like so:
 
 ```bash
-cp .env.example .env
+bun test
 ```
 
 ## Directory Stucture
