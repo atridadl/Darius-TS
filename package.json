@@ -1,6 +1,6 @@
 {
   "name": "darius",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "dev": "bun run tw && bun run src/main.ts",
     "start": "bun run src/main.ts",
@@ -8,15 +8,15 @@
   },
   "dependencies": {
     "@elysiajs/html": "latest",
-    "@elysiajs/static": "^0.7.1",
-    "@elysiajs/swagger": "^0.7.4",
+    "@elysiajs/static": "latest",
+    "@elysiajs/swagger": "latest",
     "elysia": "latest"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "latest",
     "bun-types": "latest",
-    "daisyui": "^3.9.4",
-    "tailwindcss": "^3.3.5"
+    "daisyui": "latest",
+    "tailwindcss": "latest"
   },
   "module": "src/main.ts"
 }
