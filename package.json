@@ -7,16 +7,16 @@
     "tw": "bun tailwindcss -i ./src/base.css -o ./public/css/styles.css"
   },
   "dependencies": {
-    "@elysiajs/html": "latest",
-    "@elysiajs/static": "latest",
-    "@elysiajs/swagger": "latest",
-    "elysia": "latest"
+    "@elysiajs/html": "^0.8.0",
+    "@elysiajs/static": "^0.8.1",
+    "@elysiajs/swagger": "^0.8.0",
+    "elysia": "^0.8.8"
   },
   "devDependencies": {
-    "@flydotio/dockerfile": "latest",
-    "bun-types": "latest",
-    "daisyui": "latest",
-    "tailwindcss": "latest"
+    "@flydotio/dockerfile": "^0.5.0",
+    "bun-types": "^1.0.20",
+    "daisyui": "^4.4.24",
+    "tailwindcss": "^3.4.0"
   },
   "module": "src/main.ts"
 }
